@@ -1,11 +1,9 @@
-from flask import Blueprint, render_template, session, redirect, url_for
+from flask import Blueprint, render_template, session, redirect, url_for, request
 
 routes = Blueprint('routes', __name__)
 
-# página inicial
 @routes.route("/")
 def homepage():
-    # define qual menu vai aparecer, dependendo do login
     if session.get('logged_in'):
         if session.get('user_type') == 'admin':
             menu = [
@@ -29,28 +27,37 @@ def homepage():
 
     return render_template("homepage.html", menu=menu)
 
-# simula login (teste rápido) — ex: /login/admin ou /login/user
 @routes.route("/login/<user_type>")
 def login(user_type):
     session['logged_in'] = True
     session['user_type'] = user_type
     return redirect(url_for('routes.homepage'))
 
-# logout
 @routes.route("/logout")
 def logout():
     session.clear()
     return redirect(url_for('routes.homepage'))
 
-# exemplo de página adicional
-@routes.route("/contato")
-def contato():
-    return "contate-nos!"
+@routes.route("/cadastro", methods=["POST"])
+def cadastro():
+    nome = request.form.get("nome")
+    email = request.form.get("email")
+    senha = request.form.get("senha")
+
+    # Salva os dados em um arquivo .txt
+    with open("cadastros.txt", "a") as arquivo:
+        arquivo.write(f"Nome: {nome} | Email: {email} | Senha: {senha}\n")
+
+    return "Cadastro realizado com sucesso"
 
 @routes.route("/perfil")
 def perfil():
-    return "página do perfil do usuário."
+    return "Página de perfil"
 
 @routes.route("/admin")
 def admin():
-    return "painel de administração"
+    return "Painel de administração"
+
+@routes.route("/contato")
+def contato():
+    return "Página de contato"

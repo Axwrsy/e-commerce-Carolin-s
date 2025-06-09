@@ -35,11 +35,18 @@
           <a href="#about" class="btn-get-started">Saiba Mais</a>
         </div>
       </div>
-      
-
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
     <div class="caixa">
         <div class="signin">
-            <!--substituir img-->
+            <!--substituir img, por logo em png-->
             <img src="{{ url_for('static', filename='img/capa.png') }}" alt="Imagem elegante" class="signin-img">
             <button class="signin-btn">Entre</button>
           </div>
@@ -53,12 +60,12 @@
           <button class="social-btn">in</button>
         </div>
         <p>ou faça seu registro</p>
-        <form>
-          <input type="text" placeholder="Nome" required>
-          <input type="email" placeholder="Email" required>
-          <input type="password" placeholder="Senha" required>
-          <button type="submit" class="signup-btn">Cadastro</button>
-        </form>
+        <form action="/cadastro" method="POST">
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <button type="submit">Cadastrar</button>
+          </form>
       </div>
     </div>
   </main>

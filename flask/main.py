@@ -1,15 +1,10 @@
 from flask import Flask
 from views import routes  # importa o Blueprint de views.py
-#blueprint  uma forma organizada de separar as rotas e funções do site.
-
-
 
 app = Flask(__name__)
+app.secret_key = "123456"  # Pode ser qualquer string aleatória — troque depois por segurança
+
 app.register_blueprint(routes)
 
-
-
 if __name__ == "__main__":
-    #sempre que você alterar o código e salvar, o flask reinicia o servidor automaticamente.
     app.run(port=8000, debug=True)
-
