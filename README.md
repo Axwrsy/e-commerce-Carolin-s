@@ -10,7 +10,7 @@ Loja virtual de roupas. Desenvolvida como projeto pessoal, com foco em um design
 - Bootstrap
 
 ##  Preview
-![Home Screenshot](link-da-imagem)
+![Home Screenshot](![Image](https://github.com/user-attachments/assets/747cf38e-7a46-4598-830f-babae0fc65e2))
 
 >  *Este projeto ainda está em construção.*
 
