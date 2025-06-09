@@ -1,0 +1,256 @@
+
+:root {
+    /* Fontes padrão */
+    --default-font: "Playfair Display", serif;
+    --heading-font: "Raleway", sans-serif;
+    --nav-font: "Poppins", sans-serif;
+    /* Cores gerais do site */
+    --background-color: #f9f7f4; /* tom elegante, quase creme */
+    --default-color: #333333;    /* texto geral bem escuro, mas não 100% preto */
+    --heading-color: #4a4a4a;    /* cor dos títulos */
+    --accent-color: #b08968;     /* cor de destaque: caramelo queimado/dourado discreto */
+    --surface-color:#b08968;  /* headder background*/
+    --contrast-color: #ffffff;
+    --nav-color: #333333;
+    --nav-hover-color: #b08968;
+    --nav-dropdown-background-color: #ffffff;
+    --nav-dropdown-color: #333333;
+    
+    /* Cores do menu de navegação */
+    --nav-color: #444444; /* Cor dos links do menu */
+    --nav-hover-color: #9e794e; /* Cor quando o link é hover/ativo */
+    --nav-mobile-background-color: #ffffff; /* Fundo do menu no mobile */
+    --nav-dropdown-background-color: #ffffff; /* Fundo dos dropdowns */
+    --nav-dropdown-color: #444444; /* Cor dos links nos dropdowns */
+}
+
+
+
+/*--------------------------------------------------------------
+# Estilos gerais
+--------------------------------------------------------------*/
+body {
+    margin: 0;
+    font-family: var(--default-font);
+    background-color: var(--background-color);
+    color: var(--default-color);
+}
+
+/* HEADER */
+header {
+    background-color: var(--surface-color);
+    padding: 10px 50px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.navmenu a {
+    color: var(--nav-color);
+    font-family: var(--nav-font);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.navmenu a:hover {
+    color: var(--nav-hover-color);
+}
+
+
+.navmenu ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navmenu li {
+    flex: 1;
+}
+
+.navmenu li:first-child {
+    text-align: left;
+}
+
+.navmenu li:nth-child(2) {
+    text-align: center;
+}
+
+.navmenu li:last-child {
+    text-align: right;
+}
+
+.navmenu a {
+    color: var(--contrast-color);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500px;
+    text-decoration: none;
+}
+.navmenu a:hover {
+   color: var(--nav-dropdown-color);
+}
+
+/* LAYOUT PRINCIPAL */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 80px;
+    gap: 40px;
+}
+
+
+.btn-container {
+    display: flex;
+    margin-top: 15px;        /* Espaço entre o parágrafo e o botão */
+    text-align: center;
+}
+
+
+
+/* TEXTO À ESQUERDA */
+.text-content {
+    flex: 1;
+}
+
+.text-content h2 {
+    font-family: var(--heading-font);  /* Mantém “Bem-vindo à Carolin's” */
+    color: var(--heading-color);
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.text-content p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.btn-get-started {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    
+}
+.btn-get-started:hover{
+    background-color: #a07558;
+    transform: translateY(-2px);
+}
+/* CAIXA DE LOGIN À DIREITA */
+.caixa {
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    height: auto;
+    width: 710px;
+}
+
+.signin, .signup {
+    padding: 30px;
+    width: 50%;
+}
+
+.signin {
+    background-color: #d9c1a3;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+        
+}
+.signin-img {
+    width: 80%;
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px; /* opcional, se quiser cantos arredondados */
+}
+
+  .signin-btn {
+    margin-top: 20px;
+}
+
+.signup {
+    background-color: #ede4d3;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #a07558;
+    transform: scale(1.05);
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    width:auto;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.social-btn {
+        background: #eee8e8;
+        color: #421d04;
+        border: none;
+        width: 50px;   /* largura fixa */
+        height: 50px;  /* altura fixa */
+        border-radius: 50%; /* para ficar 100% circular */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem; /* tamanho do texto dentro da bolinha */
+        cursor: pointer;
+}
+.social-btn:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    transform: scale(1.1);
+}
+    
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.signup-btn {
+    background-color:#9c7551;;
+    width: 100%;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+    .main-content {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .caixa {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .signin, .signup {
+        width: 100%;
+    }
+}
